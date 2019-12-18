@@ -11,6 +11,15 @@ module.exports = {
         filename:"bundle.js",
         // 打包出文件的文件夹位置
         path:path.resolve(__dirname, 'dist')
+    },
+    // 对于module处理的规则
+    module:{
+        rules:[{
+            test:/\.jpg/,
+            use:{
+                loader:"file-loader"
+            }
+        }]
     }
 
 
