@@ -4,7 +4,7 @@
   "description": "webpack@4.0练习",
   "private": true,
   "scripts": {
-    "bundle":"webpack"
+    "bundle": "webpack"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Jerryz0312/webpack-practice-demo#readme",
   "devDependencies": {
+    "file-loader": "^5.0.2",
     "webpack": "^4.41.3",
     "webpack-cli": "^3.3.10"
   }
