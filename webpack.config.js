@@ -15,8 +15,10 @@ module.exports = {
     // 对于module处理的规则
     module:{
         rules:[{
-            test:/\.jpg/,
+            // 正则匹配文件的后缀名
+            test:/\.jpg$|\.png$|\.jpeg$|\.svg$/,
             use:{
+                // 使用file-loader来处理匹配到的图片文件
                 loader:"file-loader"
             }
         }]
