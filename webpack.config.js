@@ -16,10 +16,19 @@ module.exports = {
     module:{
         rules:[{
             // 正则匹配文件的后缀名
-            test:/\.jpg$|\.png$|\.jpeg$|\.svg$/,
+            test:/\.(jpg|png|jpeg|svg|gif)$/,
             use:{
                 // 使用file-loader来处理匹配到的图片文件
-                loader:"file-loader"
+                loader:"url-loader",
+                options:{
+                    // 生成文件的名字不变，类型也不变
+                    // 使用占位符语法
+                    name:'[name]_[hash].[ext]',
+                    // 图片打包之后的位置
+                    outputPath:"images/",
+                    // 小于这个限制的条件，将被打包成base64数据，大于限制则保留成静态图片
+                    limit:204800
+                }
             }
         }]
     }
