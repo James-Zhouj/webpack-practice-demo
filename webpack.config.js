@@ -30,7 +30,22 @@ module.exports = {
                     limit:204800
                 }
             }
-        }]
+        },{
+            test:/\.scss$/,
+            use:[
+                'style-loader', // 将样式移动到header标签内
+                {
+                    loader:'css-loader',
+                    options:{
+                        importLoaders:2, // 不管在哪里引入sacc文件，都要运行之前的2个loader
+                        modules:true // 开启css的模块化
+                    }
+                }, // 合并同样的样式文件
+                'sass-loader',  // 解析.scss文件
+                'postcss-loader'
+            ]
+        }
+    ]
     }
 
 
