@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin =  require('html-webpack-plugin');
+const { CleanWebpackPlugin } =  require('clean-webpack-plugin');
 
 module.exports = {
     // 模式,production:会压缩代码，development:代码不会压缩
@@ -9,7 +10,7 @@ module.exports = {
     // 输出的位置
     output:{
         // 打包出文件的名字
-        filename:"bundle.js",
+        filename:"index.js",
         // 打包出文件的文件夹位置
         path:path.resolve(__dirname, 'dist')
     },
@@ -64,7 +65,7 @@ module.exports = {
     },
     plugins:[new HtmlWebpackPlugin({
         template:'./index.html'
-    })]
+    }),new CleanWebpackPlugin()]
 
 
 
