@@ -20,6 +20,13 @@ Create a new project base on webpack@4.0 and other tools,,,,,Practice use webpac
 4. webpack-cli 的作用是让我们可以再命令行里使用webpack命令
 
 5. loader
-    1. webpack 无法识别后缀不是JS的文件，为了能够让webpack正确的识别和打包这些文件，我们使用对应的loader来帮助webpack处理这些文件；
-    2. file-loader 处理文件得到文件的地址；
-    3. url-loader 包括file-loader的功能，但是打包图片是可以配置图片最小的限制：limit
+> webpack 无法识别后缀不是JS的文件，为了能够让webpack正确的识别和打包这些文件，我们使用对应的loader来帮助webpack处理这些文件；
+
+> loader 的顺序，从下到上，从右到左
+
+| loader名称 | 说明 |  
+| ---- | ---- |
+| file-loader | 处理文件得到文件的地址； |
+| url-loader | 包括file-loader的功能，但是打包图片是可以配置图片最小的限制：limit； |
+| css-loader | 分析css文件之间的关系，最终将有关系的css文件合并成一个css文件； |
+| style-loader | 将最终的css样式，移动到header中的style标签中； |
