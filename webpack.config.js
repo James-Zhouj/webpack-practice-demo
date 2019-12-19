@@ -6,13 +6,17 @@ module.exports = {
     // 模式,production:会压缩代码，development:代码不会压缩
     mode:"development",
     // 入口文件
-    entry:"./src/index.js",
+    entry:{
+       main:"./src/index.js"
+    },
     // 输出的位置
     output:{
         // 打包出文件的名字
-        filename:"index.js",
+        filename:"[name].js",
         // 打包出文件的文件夹位置
-        path:path.resolve(__dirname, 'dist')
+        path:path.resolve(__dirname, 'dist'),
+        // cdn的地址
+        // publicPath:""
     },
     // 对于module处理的规则
     module:{
