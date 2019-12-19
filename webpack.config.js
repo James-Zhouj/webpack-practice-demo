@@ -15,7 +15,7 @@ module.exports = {
         filename:"[name].js",
         // 打包出文件的文件夹位置
         path:path.resolve(__dirname, 'dist'),
-        // cdn的地址
+        // cdn的地址，在编译后会在应用的js文件前拼接上配置的地址
         // publicPath:""
     },
     // 对于module处理的规则
