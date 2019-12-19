@@ -31,6 +31,20 @@ module.exports = {
                 }
             }
         },{
+            // 正则匹配文件的后缀名
+            test:/\.(eot|ttf|svg|woff)$/,
+            use:{
+                // 使用file-loader来处理匹配到的图片文件
+                loader:"file-loader",
+                options:{
+                    // 生成文件的名字不变，类型也不变
+                    // 使用占位符语法
+                    name:'[name].[ext]',
+                    // 图片打包之后的位置
+                    outputPath:"font/"
+                }
+            }
+        },{
             test:/\.scss$/,
             use:[
                 'style-loader', // 将样式移动到header标签内
@@ -38,7 +52,7 @@ module.exports = {
                     loader:'css-loader',
                     options:{
                         importLoaders:2, // 不管在哪里引入sacc文件，都要运行之前的2个loader
-                        modules:true // 开启css的模块化
+                        // modules:true // 开启css的模块化
                     }
                 }, // 合并同样的样式文件
                 'sass-loader',  // 解析.scss文件
