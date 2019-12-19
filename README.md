@@ -31,3 +31,9 @@ Create a new project base on webpack@4.0 and other tools,,,,,Practice use webpac
 | css-loader | 分析css文件之间的关系，最终将有关系的css文件合并成一个css文件； | modules:true 开启css模块模式，css只作用于当前引入的文件，不作用域全局
 | style-loader | 将最终的css样式，移动到header中的style标签中； |
 | postcss-loader | 使用autoprefixer插件来自动给标签添加前缀 |
+
+6. plugins
+>  可以在webpack运行到某个时刻的时候，帮你做一些事情；
+
+   1. html-webpack-plugin 会打包结束之后自动生成一个html文件，并且把；
+   2. clean-webpack-plugin 会在打包之前删除指定的文件
