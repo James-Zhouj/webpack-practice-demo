@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin =  require('html-webpack-plugin');
 
 module.exports = {
     // 模式,production:会压缩代码，development:代码不会压缩
@@ -60,7 +61,10 @@ module.exports = {
             ]
         }
     ]
-    }
+    },
+    plugins:[new HtmlWebpackPlugin({
+        template:'./index.html'
+    })]
 
 
 
