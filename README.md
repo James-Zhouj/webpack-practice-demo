@@ -24,9 +24,10 @@ Create a new project base on webpack@4.0 and other tools,,,,,Practice use webpac
 
 > loader 的顺序，从下到上，从右到左
 
-| loader名称 | 说明 |  
-| ---- | ---- |
+| loader名称 | 说明 | 配置 |
+| ---- | ---- | ---- |
 | file-loader | 处理文件得到文件的地址； |
 | url-loader | 包括file-loader的功能，但是打包图片是可以配置图片最小的限制：limit； |
-| css-loader | 分析css文件之间的关系，最终将有关系的css文件合并成一个css文件； |
+| css-loader | 分析css文件之间的关系，最终将有关系的css文件合并成一个css文件； | modules:true 开启css模块模式，css只作用于当前引入的文件，不作用域全局
 | style-loader | 将最终的css样式，移动到header中的style标签中； |
+| postcss-loader | 使用autoprefixer插件来自动给标签添加前缀 |
