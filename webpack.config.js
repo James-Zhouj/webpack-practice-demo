@@ -34,7 +34,12 @@ module.exports = {
     },
     // 对于module处理的规则
     module:{
-        rules:[{
+        rules:[
+            {   test: /\.js$/,
+                exclude: /node_modules/, 
+                loader: "babel-loader" 
+            },
+            {
             // 正则匹配文件的后缀名
             test:/\.(jpg|png|jpeg|svg|gif)$/,
             use:{
