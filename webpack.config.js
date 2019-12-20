@@ -18,7 +18,17 @@ module.exports = {
         // 打包出文件的文件夹位置
         path:path.resolve(__dirname, 'dist'),
         // cdn的地址，在编译后会在应用的js文件前拼接上配置的地址
-        // publicPath:""
+        // publicPath:"/"
+    },
+    devServer:{
+        // 启动在哪一个文件下
+        contentBase:"./dist",
+        // 是否在启动webpackDevServer的时候，是否自动打开浏览器，并访问地址、
+        open:true,
+        // 跨域代理
+        proxy:{
+
+        }
     },
     // 对于module处理的规则
     module:{
