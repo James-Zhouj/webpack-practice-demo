@@ -37,3 +37,29 @@ Create a new project base on webpack@4.0 and other tools,,,,,Practice use webpac
 
    1. html-webpack-plugin 会打包结束之后自动生成一个html文件，并且把；
    2. clean-webpack-plugin 会在打包之前删除指定的文件
+
+
+7. devtool
+> 配置sourcemap：它是一个映射关系，将出错的地方从比编译后的源码的位置映射到我们源码中的位置。vlq的编码集合。
+
+
+
+| devtool（值） | 构建速度 | 重新构建速度 | 生产环境 | 品质(quality) |
+| ---- | ---- | ---- | --- | --- |
+| source-map | -- | -- | yes | 会再dist文件夹中生成.map文件 原始源代码 |
+
+inline：不会单独生成.map文件，会讲文件打进生成的js文件中，精确到哪一行哪一列；
+
+cheap：不会单独生成.map文件，会讲文件打进生成的js文件中，只精确到哪一行，并且只会对业务代码生效，不会处理引用的第三方模块；
+
+module：会针对引用的第三方模块进行处理；
+
+eval:不会在编译后的文件中生成map文件，会使用eval的形式提示；
+
+开发环境：使用cheap-module-eval-source-map；
+
+生产环境：使用cheap-module-source-map；
+
+然而vue-cli脚手架搭建的工程，开发环境使用的是eval-source-map，生产环境用的是source-map
+
+
