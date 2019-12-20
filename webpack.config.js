@@ -5,6 +5,8 @@ const { CleanWebpackPlugin } =  require('clean-webpack-plugin');
 module.exports = {
     // 模式,production:会压缩代码，development:代码不会压缩
     mode:"development",
+    // 配置sourcemap：是一个映射关系
+    devtool:'source-map',
     // 入口文件
     entry:{
        main:"./src/index.js"
