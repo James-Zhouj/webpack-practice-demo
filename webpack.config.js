@@ -1,12 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin =  require('html-webpack-plugin');
 const { CleanWebpackPlugin } =  require('clean-webpack-plugin');
-
+const webpack = require("webpack");
 module.exports = {
     // 模式,production:会压缩代码，development:代码不会压缩
     mode:"development",
     // 配置sourcemap：是一个映射关系
-    devtool:'source-map',
+    devtool:'cheap-module-eval-source-map',
     // 入口文件
     entry:{
        main:"./src/index.js"
@@ -26,9 +26,11 @@ module.exports = {
         // 是否在启动webpackDevServer的时候，是否自动打开浏览器，并访问地址、
         open:true,
         // 跨域代理
-        proxy:{
-
-        }
+        proxy:{},
+        // 开启HMR
+        hot:true,
+        // 
+        hotOnly:true
     },
     // 对于module处理的规则
     module:{
@@ -63,6 +65,19 @@ module.exports = {
                 }
             }
         },{
+            test:/\.css$/,
+            use:[
+                'style-loader', // 将样式移动到header标签内
+                {
+                    loader:'css-loader',
+                    options:{
+                        importLoaders:2, // 不管在哪里引入sacc文件，都要运行之前的2个loader
+                        // modules:true // 开启css的模块化
+                    }
+                }, // 合并同样的样式文件
+                'postcss-loader'
+            ]
+        },{
             test:/\.scss$/,
             use:[
                 'style-loader', // 将样式移动到header标签内
@@ -81,7 +96,9 @@ module.exports = {
     },
     plugins:[new HtmlWebpackPlugin({
         template:'./index.html'
-    }),new CleanWebpackPlugin()]
+    }),new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+]
 
 
 
