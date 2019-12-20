@@ -37,6 +37,7 @@ Create a new project base on webpack@4.0 and other tools,,,,,Practice use webpac
 
    1. html-webpack-plugin 会打包结束之后自动生成一个html文件，并且把；
    2. clean-webpack-plugin 会在打包之前删除指定的文件
+   3. webpack.HotModuleReplacementPlugin 热更新，当页面上数据变化的时候，不需要重新加载文件，只修改变化的部分。正常情况下需要配合使用module.hot.accept方法，为什么开发vue的时候我们不用写，因为在css-loader和vue-loader中，已经内置了这样的判断
 
 
 7. devtool
