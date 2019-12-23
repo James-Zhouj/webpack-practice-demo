@@ -37,7 +37,7 @@ module.exports = {
         rules:[
             {   test: /\.js$/,
                 exclude: /node_modules/, 
-                loader: "babel-loader" 
+                loader: "babel-loader"
             },
             {
             // 正则匹配文件的后缀名
