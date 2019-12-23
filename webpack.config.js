@@ -29,13 +29,14 @@ module.exports = {
         proxy:{},
         // 开启HMR
         hot:true,
-        // 
+        // 即使不支持HMR或者HMR有问题的时候，当代码变更，依然不刷新页面
         hotOnly:true
     },
     // 对于module处理的规则
     module:{
         rules:[
             {   test: /\.js$/,
+                // 不包含node_modules下的js文件
                 exclude: /node_modules/, 
                 loader: "babel-loader"
             },
