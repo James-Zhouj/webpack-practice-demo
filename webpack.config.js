@@ -104,7 +104,11 @@ module.exports = {
         template:'./index.html'
     }),new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin()
-]
+    ],
+    // 想要在开发环境使用Tree Shaking,需要配置optimization
+    optimization:{
+        usedExports:true
+    }
 
 
 
