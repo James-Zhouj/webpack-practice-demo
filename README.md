@@ -91,7 +91,7 @@ targets:{
 
 形式
 presets:[["@babel/preset-env",{
-    // 当往低版本的浏览加薪的特性的时候，用到啥补充啥
+    // 当往低版本的浏览加薪的特性的时候，用到啥补充啥,并且这个字段会自动在项目里引入@babel/polyfills，不需要手动引入
     useBuiltIns:"usage",
     // 使用的浏览器版本
     targets:{
@@ -120,3 +120,19 @@ presets:[["@babel/preset-env",{
 ```
 
 
+
+9. Tree Shaking 只支持 ES Module（静态引入）的方式
+```
+在开发环境中及 mode：development
+需要配置optimization
+
+optimization:{
+    usedExports:true
+}
+
+还需要在package.json 文件中设置sideEffects,指定哪些为纯净文件，不需要使用Tree Shaking
+
+
+在生产环境中及 mode：production会自动开启Tree Shaking 和 minification
+
+```

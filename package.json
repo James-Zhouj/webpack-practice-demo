@@ -1,6 +1,7 @@
 {
   "name": "webpack-practice-demo",
   "version": "1.0.0",
+  "sideEffects":false,
   "description": "webpack@4.0练习",
   "private": true,
   "scripts": {
