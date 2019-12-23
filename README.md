@@ -121,8 +121,10 @@ presets:[["@babel/preset-env",{
 
 
 
-9. Tree Shaking 只支持 ES Module（静态引入）的方式
+9. Tree Shaking 
 ```
+只支持 ES Module（静态引入）的方式
+
 在开发环境中及 mode：development
 需要配置optimization
 
@@ -131,7 +133,6 @@ optimization:{
 }
 
 还需要在package.json 文件中设置sideEffects,指定哪些为纯净文件，不需要使用Tree Shaking
-
 
 在生产环境中及 mode：production会自动开启Tree Shaking 和 minification
 

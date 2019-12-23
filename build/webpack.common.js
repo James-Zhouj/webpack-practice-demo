@@ -1,38 +1,22 @@
 const path = require('path');
 const HtmlWebpackPlugin =  require('html-webpack-plugin');
 const { CleanWebpackPlugin } =  require('clean-webpack-plugin');
-const webpack = require("webpack");
+
 module.exports = {
-    // 模式,production:会压缩代码，development:代码不会压缩
-    mode:"development",
-    // 配置sourcemap：是一个映射关系
-    devtool:'cheap-module-eval-source-map',
     // 入口文件
     entry:{
-       main:"./src/index.js"
-    },
-    // 输出的位置
+        main:"./src/index.js"
+     },
+     // 输出的位置
     output:{
         // 打包出文件的名字
         filename:"[name].js",
         // 打包出文件的文件夹位置
-        path:path.resolve(__dirname, 'dist'),
+        path:path.resolve(__dirname, '../dist'),
         // cdn的地址，在编译后会在应用的js文件前拼接上配置的地址
         // publicPath:"/"
     },
-    devServer:{
-        // 启动在哪一个文件下
-        contentBase:"./dist",
-        // 是否在启动webpackDevServer的时候，是否自动打开浏览器，并访问地址、
-        open:true,
-        // 跨域代理
-        proxy:{},
-        // 开启HMR
-        hot:true,
-        // 即使不支持HMR或者HMR有问题的时候，当代码变更，依然不刷新页面
-        hotOnly:true
-    },
-    // 对于module处理的规则
+     // 对于module处理的规则
     module:{
         rules:[
             {   test: /\.js$/,
@@ -100,15 +84,22 @@ module.exports = {
         }
     ]
     },
+    devServer:{
+        // 启动在哪一个文件下
+        contentBase:"./dist",
+        // 是否在启动webpackDevServer的时候，是否自动打开浏览器，并访问地址、
+        open:true,
+        // 跨域代理
+        proxy:{},
+        // 开启HMR
+        hot:true,
+        // 即使不支持HMR或者HMR有问题的时候，当代码变更，依然不刷新页面
+        hotOnly:true
+    },
     plugins:[new HtmlWebpackPlugin({
         template:'./index.html'
-    }),new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    }),new CleanWebpackPlugin()
     ],
-    // 想要在开发环境使用Tree Shaking,需要配置optimization
-    optimization:{
-        usedExports:true
-    }
 
 
 
